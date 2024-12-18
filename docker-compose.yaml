@@ -1,0 +1,22 @@
+services:
+  spark:
+    image: bitnami/spark:latest
+    container_name: spark
+    environment:
+      - SPARK_MODE=master
+    ports:
+      - "8080:8080"
+    volumes:
+      - spark_data:/bitnami
+      - ./.:/mnt/files
+      - ./startup.sh:/startup.sh
+    networks:
+      - spark_net
+    restart: unless-stopped
+
+volumes:
+  spark_data:
+
+networks:
+  spark_net:
+    driver: bridge

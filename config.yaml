@@ -1,0 +1,6 @@
+app:
+  spark:
+    callbacks: true
+  ml:
+    enabled: false
+    job: prepare_training_data
